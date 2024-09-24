@@ -1,0 +1,514 @@
+* {
+  font-family: "Plus Jakarta Sans", Helvetica, sans-serif;
+}
+body {
+  background-color: #eaeaea;
+  color: #333;
+}
+.container {
+  background-color: white;
+  width: 85%;
+  margin: 0 auto;
+}
+h1 {
+  padding: 41px 20px 21px 20px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 130%;
+  line-height: 40px;
+}
+li {
+  display: inline-block;
+}
+ul a {
+  color: rgb(100, 100, 100);
+  text-decoration: none;
+  display: inline-block;
+}
+/* Gaya hover untuk link yang tidak aktif */
+ul a:hover:not(.active) {
+  color: rgb(100, 100, 100);
+}
+
+/* Animasi underline */
+ul a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid rgb(100, 100, 100);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+/* Animasi underline pada hover, kecuali jika elemen memiliki kelas 'active' */
+ul a:hover:not(.active)::after {
+  transform: scaleX(0.5);
+}
+
+.hero {
+  width: 100%;
+  height: 300px;
+  background-image: url(img/ian.jpg);
+  background-size: cover;
+  background-position: center;
+}
+.content {
+  padding: 20px;
+}
+.content h2 {
+  margin: 0;
+}
+.content .penulis {
+  color: rgb(100, 100, 100);
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.content .main {
+  margin-top: 30px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  float: left;
+}
+/* .content .main p,
+.footer p,
+.sidebar p {
+  font-size: small;
+} */
+.content .main h2 + p {
+  font-size: medium;
+}
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 0.05px;
+}
+.cf:before,
+.cf:after {
+  content: " ";
+  display: table;
+}
+
+.cf:after {
+  clear: both;
+}
+/* .cf {
+  *zoom: 1;
+} */
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+}
+img.profile {
+  margin-right: 15px;
+  float: left;
+  width: 40px;
+  border-radius: 100%;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+ul#nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  padding-right: 21.44px;
+}
+
+ul#nav-links li {
+  margin-left: 20px;
+}
+
+.menu-icon {
+  padding-right: 21.44px;
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 960px) {
+  .menu-icon {
+    display: block;
+  }
+
+  ul#nav-links {
+    display: none; /* Hide the menu by default */
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+  }
+
+  ul#nav-links.show {
+    display: flex; /* Show the menu when clicked */
+  }
+
+  ul#nav-links li {
+    margin: 10px 0; /* Make each item take up its own line */
+  }
+}
+
+.skills-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Mengatur jarak antar skill */
+  margin-top: 20px;
+}
+
+.skill {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cacaca;
+  border-radius: 50px;
+  padding: 10px 20px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.skill-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+}
+
+.skill span {
+  font-size: 16px;
+  font-weight: 500;
+}
+.skill svg {
+  transition: 0.5s;
+}
+
+.skill:hover svg {
+  rotate: -20deg;
+}
+
+.skill:hover {
+  background-color: #ececec;
+}
+
+.wave {
+  display: inline-block; /* Agar animasi berfungsi dengan baik */
+  animation: wave-animation 1s infinite; /* Memutar animasi tanpa henti */
+}
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: rotate(0deg); /* Posisi awal */
+  }
+
+  40%,
+  80% {
+    transform: rotate(10deg); /* Miring ke kanan */
+  }
+
+  20%,
+  60% {
+    transform: rotate(-10deg); /* Miring ke kiri */
+  }
+}
+
+.article-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.article-link {
+  text-decoration: none;
+  color: inherit; /* Makes sure the text color stays the same */
+  width: 30%;
+}
+
+.article-card {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+  position: relative;
+  transition: 0.5s;
+}
+
+.article-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  scale: 1.01;
+}
+
+.img-placeholder {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-placeholder img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.article-card:hover .img-placeholder img {
+  filter: blur(5px) brightness(0.7);
+  transform: scale(1.05); /* Adds slight zoom-in effect */
+}
+
+.read-more-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 200;
+  font-size: 1em;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.article-card:hover .read-more-overlay {
+  opacity: 1;
+}
+
+.article-content {
+  padding: 15px;
+}
+
+.tags {
+  font-size: 0.85em;
+  color: #007acc;
+  font-weight: bold;
+}
+
+.article-container h3 {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.date {
+  font-size: 0.85em;
+  color: #777;
+}
+
+.article-container p {
+  margin: 10px 0;
+}
+
+.views {
+  font-size: 0.85em;
+  color: #555;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .article-container {
+    flex-direction: column;
+  }
+
+  .article-link {
+    width: 100%;
+  }
+}
+
+.contact-form {
+  max-width: 100%;
+  margin: auto;
+  background: #fff;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+textarea {
+  resize: none; /* Disable resize handle */
+  height: 150px; /* Set a fixed height for textarea */
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+.response-time {
+  font-size: 0.85em;
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Styling the form for mobile responsiveness */
+@media (max-width: 600px) {
+  td {
+    display: block;
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+p {
+  line-height: 30px;
+}
+
+.active {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid rgb(100, 100, 100);
+  /* transform: scaleX(0); */
+  transition: 0.2s linear;
+}
+
+.title-about {
+  display: flex;
+  justify-content: flex-start; /* Grup berada di sebelah kiri */
+}
+
+.about {
+  display: flex;
+  align-items: center; /* Sejajarkan SVG dan teks vertikal */
+  background-color: #ececec; /* Warna latar belakang hanya untuk grup */
+  padding: 4px 15px; /* Padding di sekitar konten */
+  border-radius: 5px; /* Opsional, untuk membuat sudut melengkung */
+}
+
+.content svg {
+  margin-right: 8px; /* Spasi antara SVG dan teks */
+}
+
+.title-about h2 {
+  margin: 0; /* Hilangkan margin default */
+}
+
+.chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #60a5fa;
+  color: white;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: center;
+}
+.chat-popup {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  min-width: 200px;
+  min-height: 200px;
+  max-width: 90vw; /* Membatasi lebar maksimal 90% dari viewport */
+  max-height: 85vh;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  resize: both;
+  overflow: hidden;
+}
+.chat-popup-header {
+  background-color: #60a5fa;
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  text-align: center;
+  cursor: move;
+}
+.chat-popup-body {
+  padding: 10px;
+  height: 200px;
+  overflow-y: auto;
+  flex-grow: 1;
+}
+.chat-popup-footer {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+.chat-popup-footer input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+}
+
+.chat-popup-footer button {
+  width: 50px; /* Menetapkan lebar tombol lebih kecil */
+  padding: 10px;
+  background-color: #60a5fa;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Draggable corner for resizing */
+.resizer {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: nwse-resize;
+}
+.chat-popup p {
+  font-size: small;
+  text-align: justify;
+}
+
+#successPopup {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #4caf50;
+  color: white;
+  font-size: 16px;
+  border-radius: 10px;
+}
