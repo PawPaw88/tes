@@ -374,11 +374,11 @@
               setTimeout(() => reject(new Error("timeout")), 10000)
             );
 
-            // Call Bing AI API using the provided URL
+            // Call the new AI API
             const fetchPromise = fetch(
-              `https://itzpire.com/ai/bing-ai?model=Creative&q=${encodeURIComponent(
+              `https://api.ryzendesu.vip/api/ai/gemini?text=${encodeURIComponent(
                 query
-              )}&logic=gunakan%20bahasa%20non%20formal%20dalam%20percakapan`,
+              )}`,
               {
                 headers: {
                   accept: "application/json",
@@ -390,10 +390,7 @@
             const response = await Promise.race([fetchPromise, timeoutPromise]);
 
             const data = await response.json();
-            let aiResponse = data.result;
-
-            // Remove <sup> elements and their content
-            aiResponse = aiResponse.replace(/<sup[^>]*>.*?<\/sup>/g, "");
+            let aiResponse = data.answer;
 
             // Remove loading message and add AI response
             loadingMessage.remove();
